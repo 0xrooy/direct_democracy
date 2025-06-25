@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/pierre-dumont/Direct_Democracy/venv/lib/python3.12/site-packages/concrete/fhe/compilation/module_compiler.py", line 405, in compile
+    function.evaluate("Compiling", inputset, configuration, function_artifacts)
+  File "/home/pierre-dumont/Direct_Democracy/venv/lib/python3.12/site-packages/concrete/fhe/compilation/module_compiler.py", line 233, in evaluate
+    self.trace(first_sample, artifacts)
+  File "/home/pierre-dumont/Direct_Democracy/venv/lib/python3.12/site-packages/concrete/fhe/compilation/module_compiler.py", line 135, in trace
+    param: ValueDescription.of(arg, is_encrypted=(status == EncryptionStatus.ENCRYPTED))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pierre-dumont/Direct_Democracy/venv/lib/python3.12/site-packages/concrete/fhe/values/value_description.py", line 104, in of
+    raise ValueError(message)
+ValueError: Concrete cannot represent {'x': 0}

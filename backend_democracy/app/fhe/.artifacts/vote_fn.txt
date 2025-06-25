@@ -1,0 +1,2 @@
+def vote_fn(x):
+    return x  # or any logic you'd like

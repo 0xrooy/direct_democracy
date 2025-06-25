@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+venv/
+
+# Node.js
+node_modules/
+.next/
+
+# VSCode/IDE stuff
+*.log
+.env
+
