@@ -1,0 +1,60 @@
+# ===============================
+# COMMON
+# ===============================
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+*.log
+*.sqlite3
+*.env
+*.env.*       # .env.local, .env.dev, etc.
+
+# Git & Docker metadata
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+
+# ===============================
+# BACKEND (FastAPI - Python)
+# ===============================
+backend_democracy/.venv
+backend_democracy/env
+backend_democracy/.mypy_cache
+backend_democracy/.pytest_cache
+backend_democracy/.coverage
+backend_democracy/htmlcov
+backend_democracy/.vscode
+
+# ===============================
+# FRONTEND (Next.js - Node)
+# ===============================
+frontend_democracy/node_modules
+frontend_democracy/.next
+frontend_democracy/out
+frontend_democracy/.turbo
+frontend_democracy/.eslintcache
+
+# ===============================
+# SYSTEM/IDE FILES
+# ===============================
+.vscode/
+*.swp
+*.swo
+*.bak
+*~
+*.DS_Store
+Thumbs.db
+
+# ===============================
+# ARCHIVES / TEMP FILES
+# ===============================
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+*.tmp
+*.cache

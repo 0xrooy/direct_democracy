@@ -11,8 +11,10 @@ def load_keys():
     pub_path = os.path.join(KEY_DIR, "fhe_public.json")
     priv_path = os.path.join(KEY_DIR, "fhe_private.json")
 
+    # Auto-generate if missing
     if not os.path.exists(pub_path) or not os.path.exists(priv_path):
-        raise FileNotFoundError("Missing FHE key files. Please run keys.py to generate them.")
+        print("[INFO] FHE key files missing. Generating new keys...")
+        generate_keys(pub_path, priv_path)
 
     with open(pub_path) as f:
         pub = fhe.PublicKey.from_json(json.load(f))
@@ -20,6 +22,7 @@ def load_keys():
         priv = fhe.SecretKey.from_json(json.load(f))
 
     return pub, priv
+
 
 
 def encrypt_vote(vote: int) -> bytes:

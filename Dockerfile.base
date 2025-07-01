@@ -1,0 +1,23 @@
+FROM python:3.12-slim
+
+# Environment sanity
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+# System-level dependencies (minimal)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    libssl-dev \
+    curl \
+    git \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Preload wheels (heavy packages like torch, concrete-python, CUDA)
+COPY backend_democracy/wheels /wheels
+
+# Install wheels offline (fast + repeatable builds)
+RUN python -m pip install --upgrade pip && \
+    pip install --prefer-binary --no-cache-dir --no-index --find-links=/wheels \
+    concrete-python

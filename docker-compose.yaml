@@ -1,26 +1,39 @@
-version: "3.9"
-
 services:
   backend:
-    build: ./backend_democracy
+    build:
+      context: ./backend_democracy
+      dockerfile: Dockerfile
+    container_name: backend_democracy
     ports:
       - "8000:8000"
     volumes:
-      - ./backend_democracy:/app
+      - ./backend_democracy:/app:cached  # Only for dev. Remove in prod.
     depends_on:
       - mongo
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MONGO_URI=mongodb://mongo:27017
+    env_file:
+      - ./backend_democracy/.env
+
 
   frontend:
-    build: ./frontend_democracy
+    build:
+      context: ./frontend_democracy
+      dockerfile: Dockerfile
+    container_name: frontend_democracy
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend_democracy:/app
+      - ./frontend_democracy:/app:cached  # Only for dev
     depends_on:
       - backend
+    env_file:
+      - ./frontend_democracy/.env.docker
 
   mongo:
     image: mongo:6
+    container_name: mongo_democracy
     restart: always
     ports:
       - "27017:27017"
