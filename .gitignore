@@ -1,12 +1,21 @@
 # Python
+.venv/
 __pycache__/
-venv/
+*.pyc
+*.pyo
+*.pyd
 
-# Node.js
+# Node
 node_modules/
-.next/
 
-# VSCode/IDE stuff
-*.log
+# Wheels and packages
+*.whl
+
+# Git
+*.pack
+*.idx
+
+# General
+.DS_Store
 .env
-
+*.log
