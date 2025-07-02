@@ -1,0 +1,2 @@
+echo "*" > backend_democracy/app/fhe/keys/.gitignore
+echo "!.gitignore" >> backend_democracy/app/fhe/keys/.gitignore
