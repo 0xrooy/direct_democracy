@@ -25,7 +25,6 @@ build/
 *.pack
 *.idx
 .git/
-.gitignore
 
 # Environment
 .env
@@ -43,4 +42,10 @@ docker-compose.override.yml
 *.tar
 
 .artifacts/
+
+# Ignore everything in the keys folder...
+backend_democracy/app/fhe/keys/*
+# ...except the .gitignore file inside it
+!backend_democracy/app/fhe/keys/.gitignore
+
 
